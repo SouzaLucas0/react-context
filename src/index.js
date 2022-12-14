@@ -17,12 +17,11 @@ const theme = createTheme({
 })
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
         <Router />
       </ThemeProvider>
-    </StylesProvider>
-  </React.StrictMode>,
+    </StylesProvider>,
   document.getElementById('root')
 );

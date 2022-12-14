@@ -66,7 +66,7 @@ function Carrinho() {
           efetuaCompra();
           setTimeout(() => {
             history.push('/feira')
-        }, 2000);
+        }, 5000);
         }}
         color="primary"
         variant="contained"
