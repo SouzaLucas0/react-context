@@ -4,9 +4,11 @@ import Login from 'pages/Login'
 import Feira from 'pages/Feira'
 import Carrinho from 'pages/Carrinho'
 import { UsuarioProvider } from 'common/context/Usuario'
+import { CarrinhoProvider } from 'common/context/Carrinho'
+import { PagamentoProvider } from 'common/context/Pagamento'
 
 export default function Router() {
- 
+ //Resolver bug no tamanho do campo de qtd
 
   return (
     <BrowserRouter>
@@ -15,13 +17,17 @@ export default function Router() {
               <Route exact path='/'>
                 <Login />
               </Route>
-              <Route path='/feira'>
-                <Feira />
-              </Route>
+              <CarrinhoProvider>
+              <PagamentoProvider>
+                  <Route path='/feira'>
+                    <Feira />
+                  </Route>                
+                  <Route path='/carrinho'>
+                    <Carrinho />
+                  </Route>
+                </PagamentoProvider>
+              </CarrinhoProvider>              
             </UsuarioProvider>
-            <Route path='/carrinho'>
-              <Carrinho />
-            </Route>
         </Switch>
     </BrowserRouter>
   )
